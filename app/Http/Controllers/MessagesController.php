@@ -34,7 +34,7 @@ class MessagesController extends Controller
             // with the values that we got in the post-request
             $message->title = $request->title;
             $message->content = $request->content;
-    
+            $message->name = $request->name;
             // we save the new Message-Object in the messages
             // table in our database
             $message->save();

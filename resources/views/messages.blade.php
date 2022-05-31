@@ -12,6 +12,7 @@
    <form action="/create" method="post">
    <input type="text" name="title" placeholder="Title">
    <input type="text" name="content" placeholder="Content">
+   <input type="text" name="name" placeholder="Name">
       <!-- this blade directive is necessary for all form posts somewhere in between
          the form tags -->
       @csrf
@@ -33,6 +34,7 @@ and created_at in an <li> element -->
                <a href="/message/{{$message->id}}">{{$message->title}}:</a>
             </b><br>
        {{$message->content}}<br>
+       {{$message->name}}<br>
        {{$message->created_at->diffForHumans()}}           
    </li>
 @endforeach
