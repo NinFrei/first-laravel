@@ -42,6 +42,7 @@ class MessagesController extends Controller
             // at the end we make a redirect to the url /messages
             return redirect('/messages');        
         }
+        
         public function details($id) {
  
             // ask the database for the message with the ID that we got
@@ -68,7 +69,30 @@ class MessagesController extends Controller
             $result = Message::findOrFail($id)->delete();
       
             // after that we redirect to the message list again  
-            return redirect('/messages');        
+            return redirect('/messages');
+           
+
+        } 
+        public function change (Request $request, $id) {
+
+            $request->validate([
+                'title' => 'required',
+                'content' => 'required'
+
+            ]);
+
+
+
+
+            $message = Message::findOrFail($id);
+            $message->title = $request->title;
+            $message->content = $request->content;
+            $message->name = $request->name;
+           
+            $message->save();
+      
+            // after that we redirect to the message list again  
+            return redirect('/messages');    
         } 
        
 

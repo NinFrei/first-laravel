@@ -30,3 +30,7 @@ use App\Http\Controllers\MessagesController;
     Route::post('/create', [MessagesController::class, 'create']);
     Route::get('/message/{id}', [MessagesController::class, 'details']);
     Route::delete('/message/{id}', [MessagesController::class, 'delete']);
+    // fuer formular
+    Route::post('/change/{id}', [MessagesController::class, 'change']);
+    // für newDetail blade template
+    //Route::get('/message/{id}', [MessagesController::class, 'details']);
