@@ -23,7 +23,7 @@
    @yield('content')
    <!-- hier wird die php Funktion date() aufgerufen mit dem Format-Pattern 'd.m.Y'
     und im html ausgegeben-->
-   <div><b>© Copyright Zürich: {{date('d.m.Y')}}</b></div>   
+   <div class="text-white"><b>© Copyright Zürich: {{date('d.m.Y')}}</b></div>   
 </body>
 </html>
 

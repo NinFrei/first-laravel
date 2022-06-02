@@ -8,10 +8,11 @@
       <script src="{{ asset('js/app.js') }}" defer></script>
    <!-- Styles -->
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
    <title>Document</title>
 </head>
 <body>
-   
+
 <!--extend layout master.blade.php -->
 @extends('layouts/master')
 <!--sets value for section title to "Mini Twitter" (section title is used in messages.blade.php) -->
@@ -23,8 +24,8 @@ ts value for section title to "Mini Twitter" (section content is used in message
 
 
 @section('content')
- 
-<h2>Create new message: </h2>
+
+<h1>Create new message: </h1>
  <br>
    <form action="/create" method="post">
    <input type="text" name="title" placeholder="Title">
@@ -41,24 +42,36 @@ ts value for section title to "Mini Twitter" (section content is used in message
  
 </form>
 
-<h2>Recent messages:</h2>
- 
+<h2 class="text-dark"><strong>Recent messages:<strong></h2>
+
+
 <ul>
 <!-- loops through the $messages, that this blade template
    gets from MessageController.php. for each element of the loop which
    we call $message we print the properties (title, content
 and created_at in an <li> element -->
 @foreach ($messages as $message) 
+
    <li>
+   <div class="container mt-3">
+   <p class="text-white">
        <b>
           <!-- this link to the message details is created dynamically
                and will point to /messages/1 for the first message -->
-               <a href="/message/{{$message->id}}">{{$message->title}}:</a>
+               <a href="/message/{{$message->id}}" class="text-white">{{$message->title}}:</a>
             </b><br>
-       {{$message->content}}<br>
-       {{$message->name}}<br>
-       {{$message->created_at->diffForHumans()}}  
-       <a href="/message/{{$message->id}}">Edit</a>          
+       <span class="text-dark grey">{{$message->content}}</span>
+
+       <br>
+       {{$message->name}}
+       <br>
+       <span>Entry: {{$message->created_at->diffForHumans()}}</span> 
+       
+       <a href="/message/{{$message->id}}" class="text-dark grey">Edit</a> 
+       <span>{{ $message->updated_at->diffForHumans() }}</span>
+        
+</p>
+</div>       
    </li>
 @endforeach
 </ul>

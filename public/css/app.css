@@ -11287,7 +11287,11 @@ textarea.form-control-lg {
   }
 }
 body {
+  -webkit-text-decoration-color: rgb(216, 12, 12);
+          text-decoration-color: rgb(216, 12, 12);
   font: 100% Helvetica, sans-serif;
   color: #333;
   background-color: rgb(193, 247, 229);
+  background-image: url("/img/Download.png");
+  background-size: cover;
 }

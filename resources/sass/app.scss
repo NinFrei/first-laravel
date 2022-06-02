@@ -12,7 +12,10 @@ $primary-color: #333;
 $background-color: rgb(193, 247, 229);
 
 body {
+    text-decoration-color: rgb(216, 12, 12);
     font: 100% $font-stack;
     color: $primary-color;
     background-color: $background-color;
+    background-image: url('/img/Download.png');
+    background-size: cover;
 }
